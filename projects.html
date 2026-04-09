@@ -3,66 +3,364 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Projets — Omar Ouchchen</title>
+    <meta
+      name="description"
+      content="Projets de Omar Ouchchen en data engineering, BI et IA appliquee."
+    />
+    <title>Projets | Omar Ouchchen</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <nav>
-      <div class="logo">Omar Ouchchen</div>
-      <div class="menu">
-        <a href="index.html">Accueil</a>
-        <a href="projects.html" class="active">Projets</a>
-        <a href="about.html">À propos</a>
-        <a href="certificates.html">Certifications</a>
-        <a href="contact.html">Contact</a>
-        <a href="assets/CV/Omar_Ouchchen_CV.pdf" class="btn btn-primary">CV</a>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html" aria-label="Retour a l accueil">
+          <span class="brand-mark">OO</span>
+          <span>Omar Ouchchen</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="siteNav"
+          aria-label="Ouvrir le menu"
+        >
+          Menu
+        </button>
+
+        <nav class="site-nav" id="siteNav" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="about.html">Parcours</a>
+          <a href="projects.html" aria-current="page">Projets</a>
+          <a href="certificates.html">Competences</a>
+          <a href="contact.html">Contact</a>
+          <div class="lang-switch" aria-label="Choix de langue">
+            <a class="lang-link is-active" href="projects.html" lang="fr">FR</a>
+            <a class="lang-link" href="en/projects.html" lang="en">EN</a>
+          </div>
+          <a
+            class="button button-primary"
+            href="assets/CV/Omar_Ouchchen_CV.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Telecharger le CV
+          </a>
+        </nav>
       </div>
-    </nav>
+    </header>
 
-    <main>
+    <main class="page-shell">
       <section class="section">
-        <h1>Projets Sélectionnés</h1>
-
-        <div class="card">
-          <h3>RAG System — Retrieval Augmented Generation</h3>
-          <p>Pipeline RAG combinant indexation vectorielle (FAISS), ingestion et APIs pour un chatbot intelligent.</p>
-          <a href="https://github.com/ouchchenomar/RAG_sys" target="_blank">Voir sur GitHub</a>
+        <div class="container">
+          <article class="page-hero reveal">
+            <p class="section-kicker">Portfolio projets</p>
+            <h1 class="page-title">
+              Des projets data ou la technique repond a un vrai probleme metier.
+            </h1>
+            <p class="page-lead">
+              J essaie de montrer ici trois choses: ma capacite a livrer de bout en
+              bout, mon gout pour les systemes data fiables, et mon interet pour l IA
+              appliquee quand elle apporte un vrai gain d usage.
+            </p>
+            <ul class="hero-points">
+              <li>Projets stages et personnels</li>
+              <li>Approche produit et impact</li>
+              <li>GitHub public quand il existe</li>
+            </ul>
+          </article>
         </div>
+      </section>
 
-        <div class="card">
-          <h3>Dashboard BI — Suivi des Ventes</h3>
-          <p>Dashboard Power BI pour le suivi des KPIs commerciaux et l'automatisation ETL.</p>
-          <a href="https://github.com/ouchchenomar/PowerBI_Suivi_Ventes" target="_blank">Voir sur GitHub</a>
+      <section class="section">
+        <div class="container">
+          <article class="highlight-card reveal">
+            <p class="section-kicker">Case study</p>
+            <h2 class="section-title">Onbor, un projet vitrine tres complet</h2>
+            <p class="section-copy">
+              Mon stage PFE m a permis de travailler sur une plateforme interne d
+              onboarding de contreparties pour une salle des marches, avec une vraie
+              profondeur technique et metier.
+            </p>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <span class="stat-number">10</span>
+                <div class="stat-label">DAGs pour les pipelines et le pilotage</div>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">5</span>
+                <div class="stat-label">dashboards Power BI livres aux equipes</div>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">RBAC</span>
+                <div class="stat-label">workflow par role et actions tracees</div>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">MDM</span>
+                <div class="stat-label">gouvernance et data quality integrees</div>
+              </div>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <div class="card">
-          <h3>Traçabilité Agricole du Maroc</h3>
-          <p>Système de traçabilité pour la filière agricole, reporting et conformité.</p>
-          <a href="https://github.com/ouchchenomar/tracabilite_agricol" target="_blank">Voir sur GitHub</a>
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="section-kicker">Selection</p>
+              <h2 class="section-title">Six projets qui racontent le mieux mon profil</h2>
+            </div>
+            <p class="section-copy">
+              Certains projets sont publics, d autres sont confidentiels ou internes,
+              mais tous montrent une piece importante de mon savoir-faire.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">Projet bancaire</p>
+                  <h3 class="project-title">Onbor - onboarding de contreparties</h3>
+                </div>
+                <p class="project-meta">Projet confidentiel | 2026</p>
+              </div>
+              <p class="project-summary">
+                Plateforme metier full-stack pour fluidifier le traitement des dossiers
+                contreparties et fiabiliser les validations entre plusieurs equipes.
+              </p>
+              <ul class="check-list">
+                <li>API FastAPI, base PostgreSQL, front React et stockage documentaire MinIO.</li>
+                <li>Workflow multi-etapes avec signatures DocuSeal, controles qualite et deduplication.</li>
+                <li>Segmentation analytics par role, gouvernance MDM et couche MLOps documentee.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>FastAPI</li>
+                <li>React</li>
+                <li>PostgreSQL</li>
+                <li>Airflow</li>
+                <li>Power BI</li>
+              </ul>
+              <ul class="project-links">
+                <li><a href="onbor-case-study.html">Voir la case study complete</a></li>
+                <li><a href="contact.html">Demander plus de details</a></li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">RAG</p>
+                  <h3 class="project-title">Assistant conversationnel de recommandation</h3>
+                </div>
+                <p class="project-meta">Tamwilcom | 2025</p>
+              </div>
+              <p class="project-summary">
+                Assistant financier base sur une architecture RAG avec retrieval local,
+                generation contextuelle et interface d usage simple.
+              </p>
+              <ul class="check-list">
+                <li>Pipeline complet LangChain, FAISS, embeddings locaux et backend FastAPI.</li>
+                <li>Interface Streamlit et generation via Ollama et Mistral.</li>
+                <li>89% de precision, 2.3 secondes de reponse moyenne, 60% des requetes automatisees.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>LangChain</li>
+                <li>FAISS</li>
+                <li>FastAPI</li>
+                <li>Streamlit</li>
+                <li>MySQL</li>
+              </ul>
+              <ul class="project-links">
+                <li>
+                  <a href="https://github.com/ouchchenomar/RAG_sys" target="_blank" rel="noopener">
+                    Voir le code
+                  </a>
+                </li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">Data quality</p>
+                  <h3 class="project-title">Data Quality Engine</h3>
+                </div>
+                <p class="project-meta">Projet personnel</p>
+              </div>
+              <p class="project-summary">
+                Moteur de controle de qualite des donnees pour tables metier, avec score
+                global, historiques d anomalies et regles parametriques.
+              </p>
+              <ul class="check-list">
+                <li>Regles de completude, coherence et unicite configurables.</li>
+                <li>Historisation des anomalies et reporting de suivi.</li>
+                <li>Base solide pour des sujets de gouvernance ou MDM.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>Python</li>
+                <li>Pandas</li>
+                <li>PostgreSQL</li>
+                <li>Data quality</li>
+              </ul>
+              <ul class="project-links">
+                <li><a href="contact.html">Projet detaille sur demande</a></li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">BI</p>
+                  <h3 class="project-title">Dashboard BI - suivi des ventes</h3>
+                </div>
+                <p class="project-meta">Projet personnel</p>
+              </div>
+              <p class="project-summary">
+                Tableau de bord decisionnel base sur un modele en etoile avec KPI
+                dynamiques et lecture drill-down pour la performance commerciale.
+              </p>
+              <ul class="check-list">
+                <li>Travail sur la modelisation et la lisibilite des KPI pour le metier.</li>
+                <li>Analyses multi-axes et navigation orientee prise de decision.</li>
+                <li>Projet demonstratif fort pour un role BI ou analytics engineering.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>Power BI</li>
+                <li>SQL</li>
+                <li>DAX</li>
+                <li>Star schema</li>
+              </ul>
+              <ul class="project-links">
+                <li>
+                  <a
+                    href="https://github.com/ouchchenomar/PowerBI_Suivi_Ventes"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Voir le code
+                  </a>
+                </li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">Machine learning</p>
+                  <h3 class="project-title">Prediction des prix immobiliers</h3>
+                </div>
+                <p class="project-meta">Projet personnel</p>
+              </div>
+              <p class="project-summary">
+                Pipeline de machine learning pour estimer des prix immobiliers, depuis
+                la preparation des donnees jusqu a une interface Streamlit.
+              </p>
+              <ul class="check-list">
+                <li>Comparaison de plusieurs modeles puis selection d un Random Forest.</li>
+                <li>Interface simple pour tester les predictions et rendre le modele visible.</li>
+                <li>Projet utile pour montrer la chaine ML de bout en bout.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>Python</li>
+                <li>scikit-learn</li>
+                <li>Streamlit</li>
+                <li>ML pipeline</li>
+              </ul>
+              <ul class="project-links">
+                <li>
+                  <a
+                    href="https://github.com/ouchchenomar/ML_housse_prediction"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Voir le code
+                  </a>
+                </li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">Document intelligence</p>
+                  <h3 class="project-title">Gestion documentaire sur Odoo</h3>
+                </div>
+                <p class="project-meta">Doosys | 2024</p>
+              </div>
+              <p class="project-summary">
+                Module de gestion documentaire enrichi par OCR, extraction NLP et
+                recherche semantique pour mieux exploiter les pieces stockees.
+              </p>
+              <ul class="check-list">
+                <li>Travail sur l automatisation et la reduction du traitement manuel.</li>
+                <li>Focus sur l archivage fiable et la rapidite d acces a l information.</li>
+                <li>Bonne illustration d un usage utile du NLP en contexte operationnel.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>Python</li>
+                <li>Odoo</li>
+                <li>OCR</li>
+                <li>NLP</li>
+              </ul>
+              <ul class="project-links">
+                <li>
+                  <a href="https://github.com/ouchchenomar/odoo" target="_blank" rel="noopener">
+                    Voir le code
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <div class="card">
-          <h3>ML — Prédiction des Prix Immobiliers</h3>
-          <p>Pipeline ML et interface Streamlit pour prédire les prix immobiliers.</p>
-          <a href="https://github.com/ouchchenomar/ML_housse_prediction" target="_blank">Voir sur GitHub</a>
-        </div>
+      <section class="section">
+        <div class="container split-grid">
+          <article class="panel reveal">
+            <p class="section-kicker">Autres projets</p>
+            <h2 class="section-title">Des explorations complementaires</h2>
+            <ul class="check-list">
+              <li>RAG System public pour tester des patterns de retrieval et d API.</li>
+              <li>Tracabilite Agricole du Maroc avec une dimension gouvernance et transparence.</li>
+              <li>EDA sur les habitudes de depense et visualisation orientee insight.</li>
+            </ul>
+          </article>
 
-        <div class="card">
-          <h3>Odoo Project - Document and Request Management at Doosys</h3>
-          <p>Développement et optimisation d'applications Odoo pour la gestion des demandes et l'archivage documentaire (OCR) durant un stage chez Doosys.</p>
-          <a href="https://github.com/ouchchenomar/odoo" target="_blank">Voir sur GitHub</a>
-        </div>
-
-        <div class="card">
-          <h3>EDA - Student Spending Habits Analysis</h3>
-          <p>Exploration et analyse de données pour comprendre les comportements de dépenses des étudiants (Kaggle dataset). Visualisations et insights actionnables.</p>
-          <a href="https://github.com/ouchchenomar/projet-EDA-students-spending-habits" target="_blank">Voir sur GitHub</a>
+          <article class="panel reveal">
+            <p class="section-kicker">Lecture du portfolio</p>
+            <h2 class="section-title">Ce qu il faut retenir</h2>
+            <p class="section-copy">
+              Mon profil est tres coherent: data engineering solide, sens du produit,
+              BI operationnelle et usage pragmatique de l IA pour gagner du temps ou
+              mieux decider.
+            </p>
+            <div class="button-row">
+              <a class="button button-primary" href="certificates.html">Voir les competences</a>
+              <a class="button button-secondary" href="contact.html">Me contacter</a>
+            </div>
+          </article>
         </div>
       </section>
     </main>
 
-    <footer>
-      © 2025 Omar Ouchchen — Tous droits réservés.
+    <footer class="footer">
+      <div class="container footer-shell">
+        <div>
+          <strong>Omar Ouchchen</strong><br />
+          Data Engineer, BI Engineer, AI Engineer
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="about.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/ouchchenomar" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <div>Copyright <span class="js-year">2026</span></div>
+      </div>
     </footer>
+
+    <script src="assets/js/site.js" defer></script>
   </body>
 </html>

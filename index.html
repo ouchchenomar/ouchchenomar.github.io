@@ -1,248 +1,635 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Portfolio de Omar Ouchchen - Data Engineer, AI & BI Developer, Data Scientist" />
-    <meta name="keywords" content="Data Engineer, AI Developer, BI Developer, Data Scientist, Portfolio" />
-    <meta name="author" content="Omar Ouchchen" />
-    <title>Omar Ouchchen | Portfolio</title>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio de Omar Ouchchen, Data Engineer, BI Engineer et AI Engineer base a Casablanca."
+    />
+    <meta
+      property="og:title"
+      content="Omar Ouchchen | Data Engineer, BI Engineer, AI Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio professionnel de Omar Ouchchen: projets data, BI et IA appliquee, avec un fort focus impact metier."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/photo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Omar Ouchchen | Data Engineer, BI Engineer, AI Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Portfolio professionnel centre sur la data engineering, la BI et l IA appliquee."
+    />
+    <meta name="twitter:image" content="images/photo.jpg" />
+    <meta name="theme-color" content="#0d6bcf" />
+    <title>Omar Ouchchen | Data Engineer Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
-        /* Applique un effet de luminosité à l'image */
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-right: 20px;
-            filter: brightness(1.2); /* Augmente la luminosité à 120% */
-            transition: filter 0.3s ease; /* Transition douce pour l'effet */
-        }
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Omar Ouchchen",
+        "jobTitle": ["Data Engineer", "BI Engineer", "AI Engineer"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Casablanca",
+          "addressCountry": "MA"
+        },
+        "email": "mailto:ouchcheno@gmail.com",
+        "telephone": "+212676128811",
+        "sameAs": [
+          "https://github.com/ouchchenomar",
+          "https://www.linkedin.com/in/omar-ouchchen-11b579221/"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "ESI Rabat"
+        },
+        "knowsAbout": [
+          "Data Engineering",
+          "Business Intelligence",
+          "FastAPI",
+          "PostgreSQL",
+          "Power BI",
+          "RAG",
+          "NLP",
+          "Data Quality"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html" aria-label="Retour a l accueil">
+          <span class="brand-mark">OO</span>
+          <span>Omar Ouchchen</span>
+        </a>
 
-        /* Effet lors du survol de l'image pour plus de clarté */
-        .profile-photo:hover {
-            filter: brightness(1.5); /* Augmente encore plus la luminosité au survol */
-        }
-    </style>
-</head>
-<body class="is-preload">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="siteNav"
+          aria-label="Ouvrir le menu"
+        >
+          Menu
+        </button>
 
-    <!-- Wrapper -->
-    <div id="wrapper" class="fade-in">
+        <nav class="site-nav" id="siteNav" aria-label="Navigation principale">
+          <a href="index.html" aria-current="page">Accueil</a>
+          <a href="about.html">Parcours</a>
+          <a href="projects.html">Projets</a>
+          <a href="certificates.html">Competences</a>
+          <a href="contact.html">Contact</a>
+          <div class="lang-switch" aria-label="Choix de langue">
+            <a class="lang-link is-active" href="index.html" lang="fr">FR</a>
+            <a class="lang-link" href="en/index.html" lang="en">EN</a>
+          </div>
+          <a
+            class="button button-primary"
+            href="assets/CV/Omar_Ouchchen_CV.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Telecharger le CV
+          </a>
+        </nav>
+      </div>
+    </header>
 
-        <a class="skip-link" href="#main">Skip to content</a>
+    <main class="page-shell">
+      <section class="hero">
+        <div class="container hero-grid">
+          <article class="hero-copy reveal">
+            <p class="eyebrow">Data Engineer | BI Engineer | AI Engineer</p>
+            <h1 class="hero-title">
+              Je transforme des processus metier complexes en produits data utiles,
+              fiables et pilotables.
+            </h1>
+            <p class="lead">
+              Jeune diplome de l ESI Rabat, base a Casablanca, je concois des APIs,
+              pipelines data, assistants RAG et dashboards decisionnels avec une forte
+              exigence de qualite, de tracabilite et d impact business.
+            </p>
 
-        <!-- Hero -->
-        <section class="hero" id="home">
-            <canvas class="particles-canvas" id="heroParticles" aria-hidden="true"></canvas>
-            <div class="nav-inner container">
-                <div class="logo">Omar Ouchchen</div>
-                <div style="display:flex;align-items:center;gap:12px">
-                    <div class="nav-links" role="navigation" aria-label="Primary navigation">
-                        <a href="index.html">Accueil</a>
-                        <a href="#about">À propos</a>
-                        <a href="#projects">Projets</a>
-                        <a href="#skills">Compétences</a>
-                        <a href="#certifications">Certifications</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                    <a href="assets/CV/Omar_Ouchchen_CV.pdf" class="cv-button" aria-label="Télécharger CV">📄 Télécharger CV</a>
-                    <button class="nav-toggle" id="navToggleHeader" aria-controls="primary-nav" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
-                </div>
+            <div class="button-row">
+              <a
+                class="button button-primary"
+                href="assets/CV/Omar_Ouchchen_CV.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                Telecharger le CV
+              </a>
+              <a class="button button-secondary" href="projects.html">Voir les projets</a>
+              <a class="button button-ghost" href="contact.html">Discuter d une opportunite</a>
             </div>
 
-            <div class="hero-inner container">
-                <div class="hero-head">
-                    <div>
-                        <h1 class="reveal show">Salut, je suis Omar Ouchchen 👋</h1>
-                        <p class="reveal show">Data Engineer | AI &amp; BI Developer | Data Scientist</p>
-                        <div class="buttons reveal show">
-                            <a href="assets/CV/Omar_Ouchchen_CV.pdf" class="btn btn-primary" target="_blank">📄 Télécharger CV</a>
-                            <a href="#projects" class="btn btn-outline" id="viewProjectsBtn">💼 Voir mes projets</a>
-                        </div>
-                    </div>
-                </div>
+            <ul class="hero-points meta-row">
+              <li>Disponible des aout 2026</li>
+              <li>Casablanca, Maroc</li>
+              <li>FastAPI, React, PostgreSQL, Power BI</li>
+              <li>Ouvert aux echanges avec equipes au Maroc, en France et en Europe</li>
+            </ul>
+
+            <div class="stat-grid">
+              <div class="stat-card">
+                <span class="stat-number">3</span>
+                <div class="stat-label">experiences marquantes en stage</div>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">5</span>
+                <div class="stat-label">dashboards Power BI livres</div>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">89%</span>
+                <div class="stat-label">precision sur un assistant RAG</div>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">2.3s</span>
+                <div class="stat-label">temps moyen de reponse</div>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <!-- Header removed (duplicate nav bar deleted) -->
-
-        <!-- Main Content -->
-        <div id="main">
-
-            <!-- About Me Section -->
-            <section class="section" id="about">
-                <div class="container grid">
-                    <div style="max-width:260px">
-                        <img src="images/photo.jpg" alt="Omar Ouchchen" class="profile-photo" style="width:220px;height:220px;object-fit:cover;border-radius:50%;box-shadow:var(--shadow-sm);">
-                    </div>
-                    <div class="card reveal">
-                        <h2>À propos</h2>
-                        <p>Étudiant ingénieur à l'ESI Rabat, passionné par la Data Science, le Data Engineering et la BI. Disponible dès février 2026 pour un stage de fin d'études.</p>
-                    </div>
-                </div>
-            </section>
-
-        <!-- Projects -->
-        <section class="section" id="projects">
-            <div class="container">
-                <h2>Projets Sélectionnés</h2>
-                <div class="grid reveal">
-                    <div class="card project-card">
-                        <h3>💬 Tamwilcom Assistant</h3>
-                        <p>Chatbot intelligent basé sur RAG pour recommander des produits financiers.</p>
-                        <p><strong>Stack:</strong> Python, FastAPI, Streamlit, FAISS, MySQL</p>
-                        <a href="https://github.com/ouchchenomar/RAG_sys" target="_blank" class="btn">Voir sur GitHub</a>
-                    </div>
-
-                    <div class="card project-card">
-                        <h3>📚 RAG System</h3>
-                        <p>Pipeline de génération augmentée par récupération pour la recherche contextuelle.</p>
-                        <a href="https://github.com/ouchchenomar/RAG_sys" target="_blank" class="btn">Voir sur GitHub</a>
-                    </div>
-
-                    <div class="card project-card">
-                        <h3>🌾 Traçabilité Agricole du Maroc</h3>
-                        <p>Plateforme nationale intégrant la Blockchain pour garantir la transparence.</p>
-                        <a href="https://github.com/ouchchenomar/tracabilite_agricol" target="_blank" class="btn">Voir sur GitHub</a>
-                    </div>
-
-                    <div class="card project-card">
-                        <h3>📊 Dashboard BI – Suivi des ventes</h3>
-                        <p>Tableau de bord Power BI pour l’analyse commerciale et le suivi des KPIs.</p>
-                        <a href="https://github.com/ouchchenomar/PowerBI_Suivi_Ventes" target="_blank" class="btn">Voir sur GitHub</a>
-                    </div>
-
-                    <div class="card project-card">
-                        <h3>🏠 Prédiction des prix immobiliers</h3>
-                        <p>Application ML (Random Forest) pour estimer les prix immobiliers via Streamlit.</p>
-                        <a href="https://github.com/ouchchenomar/ML_housse_prediction" target="_blank" class="btn">Voir sur GitHub</a>
-                    </div>
-                </div>
+          <aside class="hero-panel reveal">
+            <div class="profile-frame">
+              <img src="images/photo.jpg" alt="Portrait de Omar Ouchchen" loading="eager" />
             </div>
-        </section>
 
-
-
-
-        <!-- Skills -->
-        <section class="section" id="skills">
-            <div class="container">
-                <h2>Compétences</h2>
-                <div class="skills reveal">
-                    <div class="skill">
-                        <div class="label">Langages — Python, SQL, Java, JS, R</div>
-                        <div class="bar"><span style="width:95%"></span></div>
-                    </div>
-                    <div class="skill">
-                        <div class="label">Data & IA — Machine Learning, NLP, ETL</div>
-                        <div class="bar"><span style="width:88%"></span></div>
-                    </div>
-                    <div class="skill">
-                        <div class="label">BI — Power BI, Tableau</div>
-                        <div class="bar"><span style="width:80%"></span></div>
-                    </div>
-                    <div class="skill">
-                        <div class="label">Cloud / DevOps — Docker, Google Cloud, Oracle Cloud</div>
-                        <div class="bar"><span style="width:72%"></span></div>
-                    </div>
-                </div>
+            <div class="hero-note">
+              <strong>Positionnement</strong>
+              Data Engineer oriente produit, avec un socle solide en BI, NLP, RAG,
+              data quality et gouvernance.
             </div>
-        </section>
 
-        <!-- Certifications -->
-        <section class="section" id="certifications">
-            <div class="container">
-                <h2>Certifications</h2>
-                <div class="grid--3 reveal">
-
-                    <div class="certification-card">
-                        <img src="images/cert_google.png" alt="Google" />
-                        <div>
-                            <h4>Google Data Analytics</h4>
-                            <a href="#" class="certificate-link" target="_blank" rel="noopener">Voir le certificat</a>
-                        </div>
-                    </div>
-
-                    <div class="certification-card">
-                        <img src="images/cert_ibm.png" alt="IBM" />
-                        <div>
-                            <h4>Python for Data Science — IBM</h4>
-                            <a href="#" class="certificate-link" target="_blank" rel="noopener">Voir le certificat</a>
-                        </div>
-                    </div>
-
-                    <div class="certification-card">
-                        <img src="images/cert_oracle.png" alt="Oracle Cloud Infrastructure" />
-                        <div>
-                            <h4>Oracle Cloud Infrastructure 2025 — Certified Data Science Professional</h4>
-                            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=8544263AC2F0631BA3B6B3C173EE345E16798874CAE05B41E6C91C6DB0C46D21" target="_blank">Voir le certificat</a>
-                        </div>
-                    </div>
-
-                    <div class="certification-card">
-                        <img src="images/cert_stanford.png" alt="Stanford" />
-                        <div>
-                            <h4>Machine Learning — Stanford</h4>
-                            <a href="https://coursera.org/share/<ton-code>" target="_blank">Voir le certificat</a>
-                        </div>
-                    </div>
-
-                    <div class="certification-card">
-                        <img src="images/cert_google_agile.png" alt="Google Agile" />
-                        <div>
-                            <h4>Agile Project Management — Google</h4>
-                            <a href="https://coursera.org/share/<ton-code>" target="_blank">Voir le certificat</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-note">
+              <strong>Ce que je cherche</strong>
+              Un premier role ou un stage de pre-embauche ou je peux construire des
+              plateformes data end-to-end et contribuer a des sujets concrets.
             </div>
-        </section>
 
-        <!-- Contact -->
-        <section class="section" id="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <div class="card reveal">
-                    <form id="contactForm" class="contact-form" novalidate>
-                        <div class="form-row">
-                            <input type="text" id="name" class="form-input" placeholder="Nom" required>
-                            <input type="email" id="email" class="form-input" placeholder="Email" required>
-                        </div>
-                        <textarea id="message" rows="6" placeholder="Message" required></textarea>
-                        <div style="display:flex;align-items:center;gap:12px">
-                            <button type="submit" class="btn-submit">Envoyer</button>
-                            <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-                                <a href="https://github.com/ouchchenomar" aria-label="Visiter mon profil GitHub" target="_blank" rel="noopener">GitHub</a>
-                                <a href="https://www.linkedin.com/in/omar-ouchchen-11b579221/" aria-label="Voir mon profil LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
-                                <a href="mailto:ouchcheno@gmail.com" aria-label="M'envoyer un email">Email</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="hero-note">
+              <strong>Lecture rapide recruteur</strong>
+              Profil junior deja tres operationnel, capable de parler data, produit et
+              execution sans rester bloque au niveau theorie.
             </div>
-        </section>
 
-        <!-- Footer -->
-        <footer>
-            © 2025 Omar Ouchchen — Made with ❤️ using HTML, CSS & JavaScript.
-            <div style="margin-top:8px">Follow: <a href="https://github.com/ouchchenomar" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/omar-ouchchen-11b579221/" target="_blank">LinkedIn</a></div>
-        </footer>
+            <div class="hero-note">
+              <strong>Version internationale</strong>
+              Une version anglaise complete du portfolio est disponible pour les
+              candidatures internationales et les process multilingues.
+            </div>
 
-        <div class="back-to-top" id="backToTop" title="Retour en haut">↑</div>
-
+            <ul class="stat-list">
+              <li>GitHub: ouchchenomar</li>
+              <li>LinkedIn actif</li>
+              <li>Francais, Anglais, Arabe, Amazigh</li>
+            </ul>
+          </aside>
         </div>
+      </section>
 
-    <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/site.js"></script>
+      <section class="section">
+        <div class="container split-grid">
+          <article class="highlight-card reveal">
+            <p class="section-kicker">Pour recruteurs</p>
+            <h2 class="section-title">Pourquoi mon profil merite un entretien</h2>
+            <p class="section-copy">
+              Je ne me limite pas a une seule brique. J ai deja travaille sur des
+              systemes qui demandent modelisation, backend, IA appliquee, dashboards et
+              rigueur de qualite.
+            </p>
+            <ul class="check-list">
+              <li>J ai deja livre des outils relies a des usages metier reels, pas seulement des demos.</li>
+              <li>Je peux contribuer rapidement sur des sujets data engineering, analytics et automation.</li>
+              <li>Je suis a l aise pour expliquer simplement une architecture ou un choix technique.</li>
+              <li>Mon parcours montre une progression coherente entre data, BI et IA appliquee.</li>
+            </ul>
+            <div class="button-row">
+              <a
+                class="button button-primary"
+                href="assets/CV/Omar_Ouchchen_CV.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                Ouvrir le CV
+              </a>
+              <a class="button button-secondary" href="contact.html">Planifier un echange</a>
+            </div>
+          </article>
 
-    </body>
+          <article class="highlight-card reveal">
+            <p class="section-kicker">Premiers 90 jours</p>
+            <h2 class="section-title">Ce que je peux apporter rapidement a une equipe</h2>
+            <div class="grid-2">
+              <article class="skill-card">
+                <h3>Fiabiliser un pipeline</h3>
+                <p class="muted">
+                  Structurer les tables, verifier la qualite, clarifier les flux et reduire le manuel.
+                </p>
+              </article>
+              <article class="skill-card">
+                <h3>Mettre de la visibilite</h3>
+                <p class="muted">
+                  Construire des KPI et dashboards utiles pour les equipes metier et managers.
+                </p>
+              </article>
+              <article class="skill-card">
+                <h3>Industrialiser un prototype</h3>
+                <p class="muted">
+                  Transformer une idee IA ou analytique en service utilisable, mesurable et propre.
+                </p>
+              </article>
+              <article class="skill-card">
+                <h3>Documenter et expliquer</h3>
+                <p class="muted">
+                  Rendre les choix techniques lisibles pour faciliter le travail d equipe.
+                </p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="section-kicker">Expertise</p>
+              <h2 class="section-title">Les sujets sur lesquels j apporte le plus de valeur</h2>
+            </div>
+            <p class="section-copy">
+              J aime travailler a l intersection entre la technique, la qualite de la
+              donnee et les besoins concrets des equipes metier.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="feature-card reveal">
+              <p class="label">Data engineering</p>
+              <h3>Pipelines, modelisation et flux robustes</h3>
+              <p class="muted">
+                ETL et ELT, PostgreSQL, orchestration, schema metier, APIs et
+                automatisation des traitements auparavant manuels.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">FastAPI</li>
+                <li class="tag">PostgreSQL</li>
+                <li class="tag">Docker</li>
+                <li class="tag">Airflow</li>
+              </ul>
+            </article>
+
+            <article class="feature-card reveal">
+              <p class="label">BI et pilotage</p>
+              <h3>Dashboards utiles a la prise de decision</h3>
+              <p class="muted">
+                Conception de KPI, modeles en etoile, suivi des SLA, analyses
+                multi-axes et reporting oriente performance operationnelle.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Power BI</li>
+                <li class="tag">SQL</li>
+                <li class="tag">DAX</li>
+                <li class="tag">Analytics</li>
+              </ul>
+            </article>
+
+            <article class="feature-card reveal">
+              <p class="label">IA appliquee</p>
+              <h3>RAG, NLP et moteurs intelligents</h3>
+              <p class="muted">
+                Assistants conversationnels, fuzzy matching, OCR, embeddings et
+                composants IA integres dans de vrais workflows metier.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">LangChain</li>
+                <li class="tag">FAISS</li>
+                <li class="tag">scikit-learn</li>
+                <li class="tag">Ollama</li>
+              </ul>
+            </article>
+
+            <article class="feature-card reveal">
+              <p class="label">Gouvernance</p>
+              <h3>Qualite, MDM et tracabilite</h3>
+              <p class="muted">
+                Regles de conformite, controles qualite, deduplication, gouvernance
+                des parametres et vision claire de la source de verite.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Data quality</li>
+                <li class="tag">MDM</li>
+                <li class="tag">RBAC</li>
+                <li class="tag">Audit trail</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="section-kicker">Projets phares</p>
+              <h2 class="section-title">Une selection de projets qui montrent mon niveau actuel</h2>
+            </div>
+            <p class="section-copy">
+              Mon objectif n est pas seulement de coder, mais de rendre un processus
+              plus rapide, plus lisible et plus fiable pour les utilisateurs finaux.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">Projet vitrine</p>
+                  <h3 class="project-title">Onbor - plateforme d onboarding de contreparties</h3>
+                </div>
+                <p class="project-meta">Attijariwafa Bank | 2026</p>
+              </div>
+              <p class="project-summary">
+                Plateforme FastAPI, React et PostgreSQL pour remplacer les echanges
+                emails, Excel et PDF par un workflow multi-acteurs traceable.
+              </p>
+              <ul class="check-list">
+                <li>Workflow de validation avec RBAC, gestion documentaire et signatures DocuSeal.</li>
+                <li>Controles qualite, deduplication et briques de gouvernance MDM.</li>
+                <li>5 dashboards Power BI pour piloter delais, volumes, rejets et performance.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>FastAPI</li>
+                <li>React</li>
+                <li>PostgreSQL</li>
+                <li>Power BI</li>
+                <li>Docker</li>
+              </ul>
+              <ul class="project-links">
+                <li><a href="onbor-case-study.html">Voir la case study complete</a></li>
+                <li><a href="projects.html">Voir tous les projets</a></li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">RAG</p>
+                  <h3 class="project-title">Assistant conversationnel financier</h3>
+                </div>
+                <p class="project-meta">Tamwilcom | 2025</p>
+              </div>
+              <p class="project-summary">
+                Assistant de recommandation base sur une architecture RAG avec
+                retrieval local, generation contextuelle et interface d usage metier.
+              </p>
+              <ul class="check-list">
+                <li>89% de precision et 2.3 secondes de temps de reponse moyen.</li>
+                <li>60% des requetes recurrentes automatisees.</li>
+                <li>Tracabilite des interactions et evaluation des resultats en continu.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>LangChain</li>
+                <li>FAISS</li>
+                <li>FastAPI</li>
+                <li>Streamlit</li>
+                <li>MySQL</li>
+              </ul>
+              <ul class="project-links">
+                <li>
+                  <a href="https://github.com/ouchchenomar/RAG_sys" target="_blank" rel="noopener">
+                    Voir sur GitHub
+                  </a>
+                </li>
+              </ul>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-header">
+                <div>
+                  <p class="label">BI</p>
+                  <h3 class="project-title">Dashboard commercial et suivi des KPI</h3>
+                </div>
+                <p class="project-meta">Projet personnel</p>
+              </div>
+              <p class="project-summary">
+                Tableau de bord decisionnel base sur un modele en etoile pour suivre
+                les ventes, les tendances et les analyses drill-down.
+              </p>
+              <ul class="check-list">
+                <li>KPI dynamiques et lecture multi-axes pour le pilotage commercial.</li>
+                <li>Structuration SQL et DAX pour une lecture rapide des performances.</li>
+                <li>Approche orientee decision plutot que simple visualisation.</li>
+              </ul>
+              <ul class="stack-list">
+                <li>Power BI</li>
+                <li>SQL</li>
+                <li>DAX</li>
+                <li>Star schema</li>
+              </ul>
+              <ul class="project-links">
+                <li>
+                  <a
+                    href="https://github.com/ouchchenomar/PowerBI_Suivi_Ventes"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Voir sur GitHub
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="section-kicker">Experiences</p>
+              <h2 class="section-title">Un parcours deja tres oriente produit et execution</h2>
+            </div>
+            <p class="section-copy">
+              Chaque stage m a pousse a livrer un systeme concret, pas seulement une
+              preuve de concept.
+            </p>
+          </div>
+
+          <div class="timeline-grid">
+            <article class="timeline-card reveal">
+              <p class="timeline-date">Fev 2026 - Juil 2026</p>
+              <h3 class="timeline-role">Stage PFE - Automatisation de l onboarding</h3>
+              <p class="timeline-company">Attijariwafa Bank, CIB Salle des Marches</p>
+              <p class="timeline-copy">
+                Construction d une plateforme metier full-stack pour fiabiliser le
+                traitement des dossiers et accelerer les validations.
+              </p>
+              <ul class="stack-list">
+                <li>FastAPI</li>
+                <li>React</li>
+                <li>PostgreSQL</li>
+                <li>DocuSeal</li>
+              </ul>
+            </article>
+
+            <article class="timeline-card reveal">
+              <p class="timeline-date">Juil 2025 - Aout 2025</p>
+              <h3 class="timeline-role">Stage PFA - Assistant conversationnel RAG</h3>
+              <p class="timeline-company">Tamwilcom</p>
+              <p class="timeline-copy">
+                Mise en place de la chaine complete retrieval, generation, interface
+                et mesure de performance pour des produits financiers.
+              </p>
+              <ul class="stack-list">
+                <li>LangChain</li>
+                <li>FAISS</li>
+                <li>Ollama</li>
+                <li>MySQL</li>
+              </ul>
+            </article>
+
+            <article class="timeline-card reveal">
+              <p class="timeline-date">Juil 2024 - Aout 2024</p>
+              <h3 class="timeline-role">Stage - Gestion documentaire sous Odoo</h3>
+              <p class="timeline-company">Doosys</p>
+              <p class="timeline-copy">
+                Module de gestion documentaire avec OCR, extraction NLP et recherche
+                semantique pour accelerer l acces a l information.
+              </p>
+              <ul class="stack-list">
+                <li>Python</li>
+                <li>Odoo</li>
+                <li>OCR</li>
+                <li>PostgreSQL</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split-grid">
+          <article class="highlight-card reveal">
+            <p class="section-kicker">Competences</p>
+            <h2 class="section-title">Un profil hybride entre backend, data et produit</h2>
+            <p class="section-copy">
+              Je suis a l aise autant sur la couche donnees que sur l exposition API,
+              l integration IA et le pilotage decisionnel.
+            </p>
+            <ul class="tag-list">
+              <li class="tag">Python</li>
+              <li class="tag">SQL</li>
+              <li class="tag">Java</li>
+              <li class="tag">FastAPI</li>
+              <li class="tag">PostgreSQL</li>
+              <li class="tag">Oracle</li>
+              <li class="tag">Power BI</li>
+              <li class="tag">Docker</li>
+              <li class="tag">Google Cloud</li>
+              <li class="tag">Oracle Cloud</li>
+              <li class="tag">React</li>
+              <li class="tag">MinIO</li>
+            </ul>
+          </article>
+
+          <article class="highlight-card reveal">
+            <p class="section-kicker">Certifications</p>
+            <h2 class="section-title">Des validations externes sur les fondamentaux data</h2>
+            <p class="section-copy">
+              Oracle, Google, IBM et Stanford confirment un socle solide sur la data,
+              le cloud et le machine learning.
+            </p>
+            <ul class="check-list">
+              <li>OCI Data Science Professional</li>
+              <li>Oracle Database Foundations Associate</li>
+              <li>Machine Learning Specialization - Stanford</li>
+              <li>Google Data Analytics et Agile Project Management</li>
+            </ul>
+            <div class="button-row">
+              <a class="button button-ghost" href="certificates.html">Voir toutes les certifications</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split-grid">
+          <article class="panel reveal">
+            <p class="section-kicker">Roles cibles</p>
+            <h2 class="section-title">Les postes sur lesquels mon profil est le plus aligne</h2>
+            <ul class="check-list">
+              <li>Junior Data Engineer</li>
+              <li>Analytics Engineer</li>
+              <li>BI Engineer ou BI Analyst avec forte composante technique</li>
+              <li>AI Engineer junior sur des usages RAG, NLP ou automation</li>
+            </ul>
+          </article>
+
+          <article class="panel reveal">
+            <p class="section-kicker">En entretien</p>
+            <h2 class="section-title">Sujets que je peux presenter avec confiance</h2>
+            <ul class="check-list">
+              <li>Architecture et logique produit du projet Onbor</li>
+              <li>Evaluation d un assistant RAG et mesure de sa performance</li>
+              <li>Conception d un dashboard Power BI oriente pilotage</li>
+              <li>Approche data quality, MDM et tracabilite dans un workflow critique</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="page-hero reveal">
+            <p class="section-kicker">Contact</p>
+            <h2 class="page-title">Si tu cherches un profil capable de livrer vite et proprement, parlons-en.</h2>
+            <p class="page-lead">
+              Je suis joignable pour des opportunites en data engineering, BI,
+              analytics engineering ou IA appliquee. Le plus simple est de me contacter
+              par email ou LinkedIn.
+            </p>
+            <div class="button-row">
+              <a class="button button-primary" href="mailto:ouchcheno@gmail.com">M envoyer un email</a>
+              <a
+                class="button button-secondary"
+                href="https://www.linkedin.com/in/omar-ouchchen-11b579221/"
+                target="_blank"
+                rel="noopener"
+              >
+                Ouvrir LinkedIn
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-shell">
+        <div>
+          <strong>Omar Ouchchen</strong><br />
+          Data Engineer, BI Engineer, AI Engineer
+        </div>
+        <ul class="footer-links">
+          <li><a href="projects.html">Projets</a></li>
+          <li><a href="certificates.html">Competences</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/ouchchenomar" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <div>Copyright <span class="js-year">2026</span></div>
+      </div>
+    </footer>
+
+    <script src="assets/js/site.js" defer></script>
+  </body>
 </html>

@@ -1,133 +1,118 @@
-// Small site JS for accessible mobile nav toggle
-(function(){
+(function () {
   'use strict';
-  function qs(sel, ctx){ return (ctx||document).querySelector(sel); }
-  function qsa(sel, ctx){ return (ctx||document).querySelectorAll(sel); }
 
-  var body = document.body;
-  var toggles = qsa('.nav-toggle');
-
-  function setOpen(open){
-    body.classList.toggle('menu-open', open);
-    toggles.forEach(function(t){ t.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+  function $(selector, context) {
+    return (context || document).querySelector(selector);
   }
 
-  toggles.forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      setOpen(!expanded);
-    });
-  });
-
-  // Close menu on Escape
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && body.classList.contains('menu-open')){
-      setOpen(false);
-    }
-  });
-
-  // Close when clicking a nav link (mobile)
-  document.addEventListener('click', function(e){
-    var target = e.target;
-    if(target && target.closest && (target.closest('.nav-links') || target.closest('#primary-nav')) && body.classList.contains('menu-open')){
-      setOpen(false);
-    }
-  });
-
-  // Smooth scroll for "Voir mes projets"
-  var viewProjectsBtn = qs('#viewProjectsBtn');
-  if(viewProjectsBtn){
-    viewProjectsBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      var target = document.querySelector('#projects');
-      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-    });
+  function $all(selector, context) {
+    return Array.prototype.slice.call((context || document).querySelectorAll(selector));
   }
 
-  // Scroll reveal using IntersectionObserver
-  var revealEls = qsa('.reveal');
-  var io = null;
-  function onIntersect(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
+  var navToggle = $('.nav-toggle');
+  var siteNav = $('#siteNav');
+
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = siteNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!siteNav.classList.contains('is-open')) {
+        return;
+      }
+
+      if (siteNav.contains(event.target) || navToggle.contains(event.target)) {
+        return;
+      }
+
+      siteNav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        siteNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
-  if('IntersectionObserver' in window){
-    io = new IntersectionObserver(onIntersect,{threshold:0.12});
-    revealEls.forEach(function(el){ io.observe(el); });
+
+  var revealItems = $all('.reveal');
+
+  if ('IntersectionObserver' in window && revealItems.length) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18
+      }
+    );
+
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
   } else {
-    // fallback: show all
-    revealEls.forEach(function(el){ el.classList.add('show'); });
-  }
-
-  // Back to top
-  var backToTop = qs('#backToTop');
-  window.addEventListener('scroll', function(){
-    if(window.scrollY > 320) backToTop.classList.add('show'); else backToTop.classList.remove('show');
-  });
-  if(backToTop){
-    backToTop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-  }
-
-  // Contact form basic validation
-  var form = qs('#contactForm');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var name = qs('#name').value.trim();
-      var email = qs('#email').value.trim();
-      var msg = qs('#message').value.trim();
-      if(!name || !email || !msg){
-        alert('Veuillez remplir tous les champs.');
-        return;
-      }
-      // Very basic email check
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
-        alert('Veuillez entrer une adresse email valide.');
-        return;
-      }
-      // Here you would send using fetch to an endpoint; for now, show success
-      alert('Merci — message envoyé (simulation).');
-      form.reset();
+    revealItems.forEach(function (item) {
+      item.classList.add('is-visible');
     });
   }
 
-  // Animate skill bars when visible
-  var skillBars = qsa('.skill .bar > span');
-  if(skillBars.length && io){
-    var skillObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          var span = entry.target.querySelector('.bar > span');
-          if(span){ span.style.width = span.getAttribute('data-width') || span.style.width || '80%'; }
-          skillObserver.unobserve(entry.target);
+  $all('.js-year').forEach(function (node) {
+    node.textContent = String(new Date().getFullYear());
+  });
+
+  var form = $('#contactForm');
+  var status = $('#formStatus');
+  var isFrench = (document.documentElement.getAttribute('lang') || 'fr').toLowerCase().indexOf('fr') === 0;
+
+  if (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var name = $('#name', form);
+      var email = $('#email', form);
+      var subject = $('#subject', form);
+      var message = $('#message', form);
+
+      if (!name || !email || !subject || !message) {
+        return;
+      }
+
+      var values = [name.value.trim(), email.value.trim(), subject.value.trim(), message.value.trim()];
+
+      if (values.some(function (value) { return !value; })) {
+        if (status) {
+          status.textContent = isFrench
+            ? 'Merci de remplir tous les champs avant de preparer le message.'
+            : 'Please complete every field before preparing the email.';
         }
-      });
-    },{threshold:0.2});
-    qsa('.skill').forEach(function(el){ skillObserver.observe(el); });
-  } else {
-    // fallback: set widths
-    qsa('.skill .bar > span').forEach(function(s){ if(!s.style.width) s.style.width = s.getAttribute('data-width') || '75%'; });
-  }
+        return;
+      }
 
-  // Simple hero particles (lightweight)
-  function startParticles(){
-    try{
-      var c = document.getElementById('heroParticles');
-      if(!c) return;
-      var ctx = c.getContext('2d');
-      var dpr = window.devicePixelRatio || 1;
-      function resize(){ c.width = c.clientWidth * dpr; c.height = c.clientHeight * dpr; ctx.scale(dpr,dpr); }
-      resize(); window.addEventListener('resize', resize);
-      var particles = [];
-      for(var i=0;i<28;i++) particles.push({x:Math.random()*c.clientWidth,y:Math.random()*c.clientHeight, r:1+Math.random()*2, vx:(Math.random()-0.5)*0.3, vy:(Math.random()-0.5)*0.3, alpha:0.2+Math.random()*0.4});
-      function tick(){ ctx.clearRect(0,0,c.clientWidth, c.clientHeight); particles.forEach(function(p){ p.x += p.vx; p.y += p.vy; if(p.x< -10) p.x=c.clientWidth+10; if(p.x>c.clientWidth+10) p.x=-10; if(p.y< -10) p.y=c.clientHeight+10; if(p.y>c.clientHeight+10) p.y=-10; ctx.beginPath(); ctx.fillStyle = 'rgba(0,122,204,'+p.alpha+')'; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); }); requestAnimationFrame(tick); }
-      requestAnimationFrame(tick);
-    } catch(e){ /* fail silently */ }
-  }
-  startParticles();
+      var mailtoSubject = encodeURIComponent('[Portfolio] ' + subject.value.trim());
+      var mailtoBody = encodeURIComponent(
+        'Nom: ' + name.value.trim() + '\n' +
+        'Email: ' + email.value.trim() + '\n\n' +
+        message.value.trim()
+      );
 
+      if (status) {
+        status.textContent = isFrench
+          ? 'Votre client mail va s ouvrir avec le message pre-rempli.'
+          : 'Your email client will open with a pre-filled message.';
+      }
+
+      window.location.href = 'mailto:ouchcheno@gmail.com?subject=' + mailtoSubject + '&body=' + mailtoBody;
+    });
+  }
 })();

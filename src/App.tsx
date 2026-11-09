@@ -5,6 +5,7 @@ import { DataPath } from './components/DataPath'
 
 const SECTION_IDS = {
   projects: 'projets',
+  caseStudy: 'onbor',
   experience: 'experience',
   skills: 'competences',
   contact: 'contact',
@@ -24,7 +25,8 @@ export default function App() {
       <main id="contenu" tabIndex={-1}>
         <Hero content={content} />
         <Projects projects={content.projects} />
-        <Experience experience={content.experience} />
+        <CaseStudySection study={content.caseStudy} />
+        <Experience experience={content.experience} caseStudyLink={content.caseStudy.readLink} />
         <Skills skills={content.skills} education={content.education} />
         <Contact contact={content.contact} cvHref={content.hero.cvHref} />
       </main>
@@ -120,7 +122,82 @@ function Projects({ projects }: { projects: Content['projects'] }) {
   )
 }
 
-function Experience({ experience }: { experience: Content['experience'] }) {
+// Onbor has no public code, so instead of a project row it gets a full case study:
+// the problem, the multi-actor workflow, the architecture and the governance layer.
+function CaseStudySection({ study }: { study: Content['caseStudy'] }) {
+  return (
+    <section className="shell section" aria-labelledby={SECTION_IDS.caseStudy}>
+      <SectionTitle id={SECTION_IDS.caseStudy}>{study.title}</SectionTitle>
+      <p className="case-meta">{study.meta}</p>
+      <p className="case-tagline">{study.tagline}</p>
+      <p className="section-intro">{study.lead}</p>
+
+      <dl className="case-brief">
+        {study.brief.map((item) => (
+          <div key={item.term}>
+            <dt className="font-bold">{item.term}</dt>
+            <dd className="case-brief-text">{item.text}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <ul className="case-figures">
+        {study.figures.map((figure) => (
+          <li key={figure.label} className="case-figure">
+            <span className="case-figure-value">{figure.value}</span>{' '}
+            <span className="case-figure-label">{figure.label}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h3 className="case-subtitle">{study.stepsTitle}</h3>
+      <ol className="case-steps">
+        {study.steps.map((step) => (
+          <li key={step}>{step}</li>
+        ))}
+      </ol>
+      <p className="case-note">{study.stepsNote}</p>
+
+      <div className="case-columns">
+        <div>
+          <h3 className="case-subtitle mt-0">{study.architectureTitle}</h3>
+          <dl className="mt-5">
+            {study.architecture.map((row) => (
+              <div key={row.layer} className="ledger-row facts-row">
+                <dt className="font-semibold">{row.layer}</dt>
+                <dd>{row.tech}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div>
+          <h3 className="case-subtitle mt-0">{study.governanceTitle}</h3>
+          <ul className="mt-5">
+            {study.governance.map((item) => (
+              <li key={item.name} className="ledger-row case-gov">
+                <p className="font-semibold">{item.name}</p>
+                <p className="case-gov-text">{item.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="case-role">
+        <h3 className="case-subtitle mt-0">{study.roleTitle}</h3>
+        <p className="case-role-text">{study.role}</p>
+        <p className="case-role-foot">
+          <a className="text-link" href={`#${SECTION_IDS.experience}`}>
+            {study.roleLink}
+          </a>
+          <span className="text-muted">{study.privacy}</span>
+        </p>
+      </div>
+    </section>
+  )
+}
+
+function Experience({ experience, caseStudyLink }: { experience: Content['experience']; caseStudyLink: string }) {
   return (
     <section className="shell section" aria-labelledby={SECTION_IDS.experience}>
       <SectionTitle id={SECTION_IDS.experience}>{experience.title}</SectionTitle>
@@ -136,6 +213,13 @@ function Experience({ experience }: { experience: Content['experience'] }) {
                 {job.role}, {job.place}
               </p>
               {job.intro ? <p className="job-intro">{job.intro}</p> : null}
+              {job.caseStudy ? (
+                <p className="mt-3">
+                  <a className="text-link" href={`#${SECTION_IDS.caseStudy}`}>
+                    {caseStudyLink}
+                  </a>
+                </p>
+              ) : null}
               <ul className="job-points">
                 {job.points.map((point) => (
                   <li key={point}>{point}</li>

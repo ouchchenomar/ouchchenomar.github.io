@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Page introuvable · Omar Ouchchen</title>
+    <script>
+      // Les pages de l'ancien site (about.html, projects.html, en/…) n'existent plus :
+      // on renvoie vers l'accueil, en anglais quand l'ancienne page l'était.
+      var en = /^\/en(\/|$)/.test(window.location.pathname)
+      window.location.replace('/' + (en ? '?lang=en' : ''))
+    </script>
+    <style>
+      body { margin: 0; padding: 3rem 1rem; font-family: system-ui, sans-serif; background: #edf1ea; color: #15221d; }
+      a { color: inherit; }
+      @media (prefers-color-scheme: dark) { body { background: #0f1814; color: #e2eae4; } }
+    </style>
+  </head>
+  <body>
+    <p>Cette page n’existe plus. <a href="/">Aller à l’accueil</a> · <a href="/?lang=en">Home page in English</a></p>
+  </body>
+</html>

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "node tools/deploy.mjs"
   },
   "dependencies": {
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",

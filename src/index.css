@@ -1,0 +1,765 @@
+@import "tailwindcss";
+
+/* Ledger palette: green-grey accounting paper, green ink for checks that pass,
+   red ink for anomalies, and one gold for the golden record. */
+:root {
+  color-scheme: light dark;
+  --paper: #edf1ea;
+  --paper-raised: #f7f9f4;
+  --ink: #15221d;
+  --muted: #4a5a53;
+  --rule: #c5d1c0;
+  --pass: #1f6b45;
+  --reject: #ab3428;
+  --gold: #7d5c0c;
+  --gold-wash: #f2e6c2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1814;
+    --paper-raised: #16221c;
+    --ink: #e2eae4;
+    --muted: #a0afa7;
+    --rule: #2b3b33;
+    --pass: #65c18e;
+    --reject: #f07a6e;
+    --gold: #dfb552;
+    --gold-wash: #2c2612;
+  }
+}
+
+@theme inline {
+  --font-sans: "Schibsted Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4 Variable", Georgia, serif;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-pass: var(--pass);
+  --color-reject: var(--reject);
+  --color-gold: var(--gold);
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--gold-wash);
+    color: var(--ink);
+  }
+
+  [id] {
+    scroll-margin-top: 1.5rem;
+  }
+
+  main:focus {
+    outline: none;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 10;
+    padding: 0.5rem 0.875rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+    transform: translateY(-5rem);
+    transition: transform 150ms ease-out;
+  }
+
+  .skip-link:focus-visible {
+    transform: none;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 150ms ease-out;
+  }
+
+  .nav-link:hover {
+    color: var(--ink);
+  }
+
+  .lang-switch {
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 150ms ease-out, background-color 150ms ease-out;
+  }
+
+  .lang-switch:hover {
+    border-color: var(--ink);
+    background: var(--paper-raised);
+  }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    gap: 3rem;
+    padding-block: 2.5rem 4.5rem;
+  }
+
+  @media (min-width: 1100px) {
+    .hero {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      align-items: center;
+      gap: 4rem;
+      padding-block: 4rem 6rem;
+    }
+  }
+
+  .hero-name {
+    font-size: clamp(2.75rem, 1.9rem + 4.2vw, 5.25rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-role {
+    margin-top: 0.75rem;
+    font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+    font-weight: 600;
+    color: var(--pass);
+  }
+
+  .hero-pitch {
+    margin-top: 1.5rem;
+    max-width: 34em;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .hero-status {
+    margin-top: 1rem;
+    max-width: 36em;
+    color: var(--muted);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.875rem;
+    padding: 0.625rem 1.125rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out;
+  }
+
+  .button-primary {
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+  }
+
+  .button-primary:hover {
+    background: var(--pass);
+    border-color: var(--pass);
+  }
+
+  .button-secondary {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+  }
+
+  .button-secondary:hover {
+    background: var(--paper-raised);
+  }
+
+  /* Golden record */
+  .record {
+    --step: 0.32s;
+    margin: 0;
+    padding: 1.25rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+  }
+
+  @media (min-width: 640px) {
+    .record {
+      padding: 1.75rem;
+    }
+  }
+
+  /* Once merged, the raw sources step back behind the golden record. */
+  .record-sources {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    animation: record-dim 0.4s ease-out backwards;
+    animation-delay: calc(var(--step) * 6.5);
+  }
+
+  .record-sources th,
+  .record-sources td {
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    overflow-wrap: break-word;
+  }
+
+  .record-sources thead th {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--muted);
+    border-bottom-color: var(--ink);
+  }
+
+  .record-sources tbody th {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .record-sources tbody tr {
+    animation: record-row-in 0.4s ease-out backwards;
+    animation-delay: calc(var(--i) * 0.12s);
+  }
+
+  .record-sources td[data-defect] {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    text-decoration-color: transparent;
+    animation: record-defect-clear 0.4s ease-out backwards;
+    animation-delay: calc(var(--step) * 6);
+  }
+
+  .record-empty {
+    font-style: italic;
+  }
+
+  .record-col-city {
+    display: none;
+  }
+
+  @media (min-width: 480px) {
+    .record-col-city {
+      display: table-cell;
+    }
+  }
+
+  .record-rules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+    margin-block: 1.25rem;
+  }
+
+  /* Four columns only when the card itself is wide enough for the longest rule
+     name ("Completeness"); in the two-column hero the card stays 2 x 2. */
+  .record-stage {
+    container-type: inline-size;
+  }
+
+  @container (min-width: 42rem) {
+    .record-rules {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .record-rules li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.375rem;
+    align-items: center;
+    /* Grid cells stretch to the tallest rule; keep each rule's name on the top line. */
+    align-content: start;
+    color: var(--pass);
+    animation: record-rule-pass 0.3s ease-out backwards;
+    animation-delay: calc(var(--step) * (2.5 + var(--i)));
+  }
+
+  .record-check path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: record-check-draw 0.3s ease-out backwards;
+    animation-delay: calc(var(--step) * (2.5 + var(--i)));
+  }
+
+  .record-rule-name {
+    font-weight: 700;
+    font-size: 0.9375rem;
+  }
+
+  .record-rule-note {
+    grid-column: 2;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    color: var(--muted);
+  }
+
+  .record-golden {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    background: var(--gold-wash);
+    animation: record-golden-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: calc(var(--step) * 7);
+  }
+
+  .record-photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .record-golden-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .record-golden-name {
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .record-golden-meta {
+    font-size: 0.9375rem;
+  }
+
+  .record-golden-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--pass);
+  }
+
+  .record-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .record-caption {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .record-caption a {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .record-replay {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding: 0.375rem 0;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .record-replay:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .record,
+    .record * {
+      animation: none !important;
+    }
+  }
+
+  @keyframes record-row-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+
+  @keyframes record-dim {
+    from {
+      color: var(--ink);
+    }
+  }
+
+  @keyframes record-defect-clear {
+    from {
+      color: var(--reject);
+      text-decoration-color: var(--reject);
+    }
+  }
+
+  @keyframes record-rule-pass {
+    from {
+      color: var(--muted);
+      opacity: 0.45;
+    }
+  }
+
+  @keyframes record-check-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+  }
+
+  @keyframes record-golden-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+      border-color: var(--rule);
+    }
+  }
+
+  /* Sections */
+  .section {
+    padding-block: 4rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-block: 5.5rem;
+    }
+  }
+
+  .section-title {
+    font-size: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  .section-intro {
+    margin-top: 1rem;
+    max-width: 38em;
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .ledger-row {
+    padding-block: 1.75rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .ledger-row:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .text-link {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-thickness 150ms ease-out;
+  }
+
+  .text-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Projects */
+  .project {
+    padding-block: 2.25rem;
+  }
+
+  .project-name {
+    font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+    font-weight: 750;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+
+  .project-summary {
+    margin-top: 0.75rem;
+    max-width: 40em;
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .project-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    margin-top: 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  /* Data path: vertical rail on phones, a horizontal lineage on wider screens */
+  .path {
+    position: relative;
+    margin-top: 1.5rem;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .path::before {
+    content: "";
+    position: absolute;
+    left: 0.3125rem;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    width: 2px;
+    background: var(--rule);
+  }
+
+  .path-step {
+    position: relative;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .path-step::before {
+    content: "";
+    position: absolute;
+    left: -1.25rem;
+    top: 0.45em;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 999px;
+    background: var(--paper);
+    border: 2px solid var(--pass);
+  }
+
+  .path-step:last-child::before {
+    background: var(--pass);
+  }
+
+  @media (min-width: 768px) {
+    .path {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding-left: 0;
+      padding-top: 1.25rem;
+    }
+
+    .path::before {
+      left: 0.375rem;
+      right: 0.375rem;
+      top: 0.3125rem;
+      bottom: auto;
+      width: auto;
+      height: 2px;
+    }
+
+    .path-step {
+      flex: 1 1 0;
+      min-width: 0;
+      padding-right: 1rem;
+      line-height: 1.3;
+    }
+
+    .path-step::before {
+      left: 0;
+      top: -1.25rem;
+    }
+  }
+
+  /* Experience */
+  .job {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .job {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  /* No tabular-nums here: in Schibsted Grotesk it also widens the period and comma. */
+  .job-dates {
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .job-org {
+    font-size: 1.375rem;
+    font-weight: 750;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  .job-role {
+    margin-top: 0.25rem;
+    font-weight: 600;
+    color: var(--pass);
+  }
+
+  .job-intro {
+    margin-top: 1rem;
+    max-width: 40em;
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .job-points {
+    margin-top: 1rem;
+    max-width: 42em;
+    display: grid;
+    gap: 0.5rem;
+    font-family: var(--font-serif);
+    line-height: 1.6;
+  }
+
+  .job-points li {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .job-points li::before {
+    content: "";
+    position: absolute;
+    left: 0.125rem;
+    top: 0.7em;
+    width: 0.5rem;
+    height: 2px;
+    background: var(--pass);
+  }
+
+  /* Skills and education */
+  .skills {
+    display: grid;
+    gap: 4rem;
+  }
+
+  @media (min-width: 1100px) {
+    .skills {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 5rem;
+    }
+  }
+
+  .facts-row {
+    display: grid;
+    gap: 0.25rem;
+    padding-block: 1.125rem;
+  }
+
+  @media (min-width: 640px) {
+    .facts-row {
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Contact */
+  .contact-email {
+    font-size: clamp(1.5rem, 1rem + 2.6vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+    text-decoration-color: var(--gold);
+    overflow-wrap: anywhere;
+    transition: color 150ms ease-out;
+  }
+
+  .contact-email:hover {
+    color: var(--pass);
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+}

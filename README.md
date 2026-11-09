@@ -1,56 +1,30 @@
-# Omar Ouchchen Portfolio
+# Portfolio d'Omar Ouchchen
 
-Professional portfolio website for Omar Ouchchen, a Data Engineer, BI Engineer, and AI Engineer.
+Site personnel en français et en anglais : React, TypeScript, Vite, Tailwind CSS.
 
-This repository powers a bilingual portfolio in French and English, designed to support hiring processes in Morocco, France, and international environments.
+## Lancer en local
 
-## Live portfolio
+```bash
+npm install
+npm run dev
+```
 
-- GitHub Pages: https://ouchchenomar.github.io/ouchchen_omar_portfolio.github.io/
+## Modifier le contenu
 
-## What the portfolio highlights
+Tout le texte est dans `src/content.ts`, une version `fr` et une version `en`. Chaque phrase vient du CV ou du README du profil GitHub : garder cette règle, ne rien ajouter qui n'y soit pas.
 
-- End-to-end data engineering and backend work
-- BI dashboards and decision-oriented analytics
-- Applied AI, including RAG and NLP use cases
-- Data quality, governance, and MDM-oriented thinking
-- A detailed Onbor case study based on a real final-year internship project
+- Photo : `public/omar.jpg` (extraite du CV).
+- CV téléchargeables : `public/CV-Omar-Ouchchen-FR.pdf` et `public/CV-Omar-Ouchchen-EN.pdf`, sans numéro de téléphone. Ils sont produits à partir des CV avec photo de `Desktop\01_Emploi\CV` par `tools/strip_phone.py`, qui supprime le numéro, recentre la ligne de contact et décale les liens (copies dans `01_Emploi\CV\*_Web.pdf`). Après toute mise à jour d'un CV, relancer le script (`pip install pymupdf`, puis `python tools/strip_phone.py <cv source> public/<nom>.pdf`).
 
-## Main sections
+## Mise en ligne
 
-- Home: positioning, recruiter-friendly summary, and featured projects
-- Background: internships, education, and working style
-- Projects: selected work across data, BI, and AI
-- Skills: technical stack and certifications
-- Contact: direct channels, recruiter snapshot, and interview talking points
-- Onbor case study: detailed walkthrough of architecture, workflow, governance, and value
+Le site est publié sur https://ouchchenomar.github.io/ depuis le dépôt `ouchchenomar/ouchchenomar.github.io`. Chaque push sur `main` lance `.github/workflows/deploy.yml`, qui construit le site avec Vite et le publie sur GitHub Pages (Settings > Pages > Source : GitHub Actions).
 
-## Featured project
+Pour publier depuis un dépôt avec un autre nom (par exemple `portfolio`), créer dans ce dépôt la variable Actions `BASE_PATH` avec la valeur `/portfolio/` : les chemins vers la photo et les CV suivent la base.
 
-The strongest project in this portfolio is `Onbor`, a counterparty onboarding platform built around:
+L'ancien site (HTML, avec l'étude de cas Onbor et les certifications) reste dans l'historique Git du dépôt et en copie locale dans `Desktop\portfolio\ancien-site`.
 
-- FastAPI and PostgreSQL backend services
-- React frontend
-- Role-based workflow and traceability
-- Document management and electronic signature
-- Power BI dashboards and operational KPIs
-- Data quality, governance, and MDM components
+## Avant de publier
 
-## Tech stack for the website
-
-- HTML
-- CSS
-- JavaScript
-- GitHub Pages
-
-## Contact
-
-- Email: `ouchcheno@gmail.com`
-- LinkedIn: https://www.linkedin.com/in/omar-ouchchen-11b579221/
-- GitHub: https://github.com/ouchchenomar
-
-## Notes
-
-- French pages live at the repository root.
-- English pages live under the `en/` directory.
-- The downloadable resume is included in `assets/CV/Omar_Ouchchen_CV.pdf`.
+- Vérifier que les CV de `public/` sont bien les versions sans numéro (voir plus haut).
+- Les liens vers GitHub (profil et trois dépôts, dont `counterparty-data-platform`, public depuis le 9 novembre 2026) répondaient tous à cette date.

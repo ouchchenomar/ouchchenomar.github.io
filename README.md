@@ -18,9 +18,14 @@ Tout le texte est dans `src/content.ts`, une version `fr` et une version `en`. C
 
 ## Mise en ligne
 
-Le site est publié sur https://ouchchenomar.github.io/ depuis le dépôt `ouchchenomar/ouchchenomar.github.io`. Chaque push sur `main` lance `.github/workflows/deploy.yml`, qui construit le site avec Vite et le publie sur GitHub Pages (Settings > Pages > Source : GitHub Actions).
+Le site est publié sur https://ouchchenomar.github.io/ depuis le dépôt `ouchchenomar/ouchchenomar.github.io` :
 
-Pour publier depuis un dépôt avec un autre nom (par exemple `portfolio`), créer dans ce dépôt la variable Actions `BASE_PATH` avec la valeur `/portfolio/` : les chemins vers la photo et les CV suivent la base.
+- la branche `source` contient ce code ; c'est là qu'on travaille et qu'on committe ;
+- la branche `main` ne contient que le site construit, que GitHub Pages sert tel quel (Settings > Pages > Deploy from a branch > `main` / root).
+
+Pour publier une modification : la committer sur `source`, la pousser (`git push`), puis lancer `npm run deploy`. Le script `tools/deploy.mjs` construit le site et remplace le contenu de `main` par `dist/`. GitHub Actions n'est pas utilisé : le compte avait les Actions bloquées par un problème de facturation le 9 novembre 2026.
+
+Pour publier depuis un dépôt avec un autre nom (par exemple `portfolio`), construire avec `npx vite build --base=/portfolio/` : les chemins vers la photo et les CV suivent la base.
 
 L'ancien site (HTML, avec l'étude de cas Onbor et les certifications) reste dans l'historique Git du dépôt et en copie locale dans `Desktop\portfolio\ancien-site`.
 

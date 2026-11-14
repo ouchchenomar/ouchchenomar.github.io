@@ -112,7 +112,7 @@ export const asset = (file: string) => `${import.meta.env.BASE_URL}${file}`
 
 export const LINKS = {
   email: `mailto:${EMAIL}`,
-  linkedin: 'https://www.linkedin.com/in/omar-ouchchen-11b579221',
+  linkedin: 'https://www.linkedin.com/in/omar-ouchchen',
   github: 'https://github.com/ouchchenomar',
 }
 
@@ -235,7 +235,7 @@ const fr: Content = {
       },
     ],
     figures: [
-      { value: '5', label: 'tableaux de bord Power BI' },
+      { value: '5', label: 'tableaux de bord intégrés' },
       { value: '10', label: 'DAGs Airflow' },
       { value: 'RBAC', label: 'droits par rôle et piste d’audit' },
       { value: 'MDM', label: 'référentiel et contrôles qualité' },
@@ -484,7 +484,7 @@ const en: Content = {
       },
     ],
     figures: [
-      { value: '5', label: 'Power BI dashboards' },
+      { value: '5', label: 'in-app dashboards' },
       { value: '10', label: 'Airflow DAGs' },
       { value: 'RBAC', label: 'role-based access and audit trail' },
       { value: 'MDM', label: 'master data and quality checks' },

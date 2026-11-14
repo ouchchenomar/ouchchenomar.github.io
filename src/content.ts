@@ -1,5 +1,5 @@
 // Every fact on this site comes from Omar's CV (FR and EN, November 2026), his GitHub
-// profile README, or the Onbor case study he wrote for his previous site (checked
+// profile README, the README of each public project, or the Onbor case study he wrote for his previous site (checked
 // against the CV; internal bank acronyms and the MLOps layer left out). Nothing here
 // is invented: edit this file to change the site.
 
@@ -184,6 +184,14 @@ const fr: Content = {
     flowLabel: 'Chemin de la donnée',
     codeLink: 'Voir le code sur GitHub',
     items: [
+      {
+        name: 'Entrepôt de données bancaires FDIC',
+        url: 'https://github.com/ouchchenomar/fdic-bank-data-warehouse',
+        summary:
+          'Déclarations trimestrielles de 4 547 banques américaines : ingestion sans doublon, historique des révisions, publication bloquée si l’un des 65 tests échoue, exécution Airflow quotidienne. Totaux à moins de 0,5 % des chiffres officiels de la FDIC.',
+        flow: ['API FDIC', 'Contrat de données', 'dbt, 65 tests', 'Publication contrôlée', 'Power BI'],
+        stack: 'Python, PostgreSQL, dbt, Airflow, Power BI, Docker',
+      },
       {
         name: 'Counterparty Data Platform',
         url: 'https://github.com/ouchchenomar/counterparty-data-platform',
@@ -427,6 +435,14 @@ const en: Content = {
     flowLabel: 'Data path',
     codeLink: 'See the code on GitHub',
     items: [
+      {
+        name: 'FDIC Bank Data Warehouse',
+        url: 'https://github.com/ouchchenomar/fdic-bank-data-warehouse',
+        summary:
+          'Quarterly filings of 4,547 U.S. banks: duplicate-free ingestion, revision history, publication blocked if any of 65 tests fails, daily Airflow run. Totals within 0.5% of the official FDIC figures.',
+        flow: ['FDIC API', 'Data contract', 'dbt, 65 tests', 'Gated publication', 'Power BI'],
+        stack: 'Python, PostgreSQL, dbt, Airflow, Power BI, Docker',
+      },
       {
         name: 'Counterparty Data Platform',
         url: 'https://github.com/ouchchenomar/counterparty-data-platform',
